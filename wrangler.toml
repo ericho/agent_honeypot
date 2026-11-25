@@ -1,0 +1,15 @@
+name = "agent-honeypot"
+main = "src/index.js"
+compatibility_date = "2026-06-01"
+
+# Keeps a few days of console logs in the Cloudflare dashboard as a backup.
+[observability]
+enabled = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "honeypot-logs"
+# The id printed by `npx wrangler d1 create honeypot-logs`. It is not a secret:
+# using the database still requires your Cloudflare login. Forks should
+# replace it with their own.
+database_id = "16f379b4-47b4-4e70-9abe-508fcf6d197a"
